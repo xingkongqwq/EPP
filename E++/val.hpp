@@ -18,7 +18,7 @@ along with this program.If not, see < https://www.gnu.org/licenses/>.
 */
 
 #pragma once
-#include "epptypes.h"
+#include "epptypes.hpp"
 #include <string>
 #include <map>
 #include <iostream>

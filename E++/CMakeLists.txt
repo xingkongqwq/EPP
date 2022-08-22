@@ -1,2 +1,2 @@
 ﻿cmake_minimum_required (VERSION 3.8)
-add_executable (E++ "E++.cpp" "E++.h"  "val.h" "val.cpp" "epptypes.h")
+add_executable (E++ "E++.cpp" "E++.hpp"  "val.hpp" "val.cpp" "epptypes.hpp")

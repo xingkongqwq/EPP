@@ -17,12 +17,12 @@ You should have received a copy of the GNU Affero General Public License
 along with this program.If not, see < https://www.gnu.org/licenses/>.
 */
 
-#include "E++.h"
-#include "val.h"
+#include "E++.hpp"
+#include "val.hpp"
 using namespace std;
 
 int main()
 {
     cout << Val(30) + Val(40) << endl;
-	return 0;
+    return 0;
 }
