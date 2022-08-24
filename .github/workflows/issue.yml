@@ -1,0 +1,31 @@
+name: Issues
+on:
+  issues:
+    types: [opened, reopened]
+
+jobs:
+  issues:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Add assigness
+        uses: actions-cool/issues-helper@v3
+        with:
+          actions: 'add-assignees'
+          token: ${{ secrets.TOKEN }}
+          issue-number: ${{ github.event.issue.number }}
+          assignees: 'xingkongqwq,xkbot233'
+      - name: Create comment
+        uses: actions-cool/issues-helper@v3
+        with:
+          actions: 'create-comment'
+          token: ${{ secrets.TOKEN }}
+          issue-number: ${{ github.event.issue.number }}
+          body: |
+            你好，@${{ github.event.issue.user.login }}。我已经为你指定了受让人
+            在指定的受让人处理你的问题之前，请确保你提供了足够的背景信息。
+      - name: Autoclose issues that did not follow issue template
+        uses: roots/issue-closer@v1.1
+        with:
+          repo-token: ${{ secrets.TOKEN }}
+          issue-close-message: "@${{ github.event.issue.user.login }} 请提供描述。"
+          issue-pattern: '/^[\s\S]*.*[^\s][\s\S]*$/'
